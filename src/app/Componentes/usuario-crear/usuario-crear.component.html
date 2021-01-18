@@ -1,0 +1,31 @@
+<div class="containers">
+    <div class="cold-md- 6">
+        <div class="card">
+            <div class=" card-body ">
+                <form [formGroup]="form" >   
+                    Nombre del usuario
+                    <input type="text"  class="form-control" formControlName="nombre" [ngClass]="{'isinvalid' : enviado && f.nombre.errors}">  
+                        <p *ngIf="f.nombre.errors  && enviado " >
+                            <small class="text-danger" *ngIf="f.nombre.hasError('required')">Es Requerido Completar su Nombre</small> 
+                            <small class="text-danger" *ngIf="f.nombre.hasError('maxlength')">No debe ser mayor a 15 letras </small> 
+                            <small class="text-danger" *ngIf="f.nombre.hasError('minlength')"> Es Requerido un minimo de 8</small> 
+                        </p>
+                                Apellido
+                            <input type="apellido"class="form-control" formControlName="apellido" [ngClass]="{'isinvalid' : enviado && f.apellido.errors}" >
+                            <p *ngIf="f.apellido.errors  && enviado " >
+                                <small class="text-danger" *ngIf="f.apellido.hasError('required')">Campo Obligatorio</small>
+                            </p>    
+                            Edad
+                            <input type="text"class="form-control" formControlName="edad" [ngClass]="{'isinvalid' : enviado && f.edad.errors}" >
+                            <p *ngIf="f.edad.errors  && enviado " >
+                                <small class="text-danger" *ngIf="f.edad.hasError('required')">Campo Obligatorio</small>
+                            </p> 
+                    </form>         
+                </div>   
+            <div class="card-footer">
+                <button class="btn btn-primary btn-lg " (click)="guardar()" >Guardar Usuario</button>
+
+            </div>
+        </div>
+    </div>
+</div>
